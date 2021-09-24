@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,eAAe;EACb,MAAM,EAAE,iBAAiB;EACzB,UAAU,EAAE,OAAO",
+"sources": ["front-end.scss"],
+"names": [],
+"file": "front-end.css"
+}
