@@ -1,4 +1,15 @@
-.saucal-wrapper{
+.saucal-wrapper {
   border: 1px solid #3C3A3A;
   background: #eee2ec;
+}
+
+.saucal-widget-wrapper {
+  border: 1px solid #111;
+  background: #eeeeee;
+  padding: 10px;
+
+  li {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #aaaaaa;
+  }
 }
