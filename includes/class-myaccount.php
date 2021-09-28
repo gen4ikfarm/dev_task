@@ -30,7 +30,9 @@ class MyAccount {
 	 * MyAccount construct
 	 */
 	public function __construct() {
-
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			return;
+		}
 		$this->data_fetch_class = new DataFetch();
 		add_action( 'init', array( $this, 'account_custom_tab_endpoint' ), 0 );
 		add_filter( 'woocommerce_get_query_vars', array( $this, 'account_custom_tab_query_vars' ), 0 );
