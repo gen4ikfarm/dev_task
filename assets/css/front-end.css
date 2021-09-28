@@ -1,6 +1,9 @@
-.saucal-wrapper {
-  border: 1px solid #3C3A3A;
-  background: #eee2ec;
+.saucal-wrapper ul {
+  margin: 0;
+}
+.saucal-wrapper ul li {
+  margin-bottom: 5px;
+  list-style: none;
 }
 
 .saucal-widget-wrapper {
@@ -8,9 +11,13 @@
   background: #eeeeee;
   padding: 10px;
 }
-.saucal-widget-wrapper li {
+.saucal-widget-wrapper ul {
+  margin: 0;
+}
+.saucal-widget-wrapper ul li {
   margin-bottom: 5px;
   border-bottom: 1px solid #aaaaaa;
+  list-style: none;
 }
 
 /*# sourceMappingURL=front-end.css.map */

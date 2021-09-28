@@ -1,6 +1,12 @@
 .saucal-wrapper {
-  border: 1px solid #3C3A3A;
-  background: #eee2ec;
+
+  ul {
+    margin: 0;
+    li {
+      margin-bottom: 5px;
+      list-style: none;
+    }
+  }
 }
 
 .saucal-widget-wrapper {
@@ -8,8 +14,12 @@
   background: #eeeeee;
   padding: 10px;
 
-  li {
-    margin-bottom: 5px;
-    border-bottom: 1px solid #aaaaaa;
+  ul {
+    margin: 0;
+    li {
+      margin-bottom: 5px;
+      border-bottom: 1px solid #aaaaaa;
+      list-style: none;
+    }
   }
 }

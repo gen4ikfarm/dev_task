@@ -25,7 +25,7 @@ class DataFetch {
 	 *
 	 * @var int Current User ID
 	 */
-	private $user_id;
+	public $user_id;
 
 
 	/**
@@ -74,14 +74,11 @@ class DataFetch {
 	 */
 	public function get_fresh_data() {
 
-		$url  = self::API_URI;
-		$url  = add_query_arg(
-			array(
-				'user'         => $this->user_id,
-				'user_options' => $this->get_user_options(),
-			),
-			self::API_URI
-		);
+		$url          = add_query_arg( 'user', $this->user_id, self::API_URI );
+		$user_options = $this->get_user_options();
+		if ( ! empty( $user_options ) ) {
+			$url = add_query_arg( $user_options, $url );
+		}
 		$data = wp_remote_get( $url, array( 'method' => 'POST' ) );
 
 		if ( is_wp_error( $data ) ) {
@@ -109,7 +106,7 @@ class DataFetch {
 	 * @return null|string
 	 */
 	public function get_user_options() {
-		return get_user_meta( $this->user_id, self::USER_META_OPTION_KEY, null );
+		return get_user_meta( $this->user_id, self::USER_META_OPTION_KEY, true );
 	}
 
 

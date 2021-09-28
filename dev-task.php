@@ -40,3 +40,12 @@ function saucaldevtest_loader() {
 
 }
 add_action( 'plugins_loaded', 'saucaldevtest_loader' );
+if ( ! function_exists( 'saucal_flush_rewrite_rules' ) ) {
+	function my_custom_flush_rewrite_rules() {
+		add_rewrite_endpoint( 'my-custom-endpoint', EP_ROOT | EP_PAGES );
+		flush_rewrite_rules();
+	}
+}
+
+register_activation_hook( __FILE__, 'saucal_flush_rewrite_rules' );
+register_deactivation_hook( __FILE__, 'saucal_custom_flush_rewrite_rules' );

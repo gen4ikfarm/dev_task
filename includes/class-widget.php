@@ -7,12 +7,13 @@
 
 namespace SAUCAL\Dev_Test;
 
-use WP_Rocket\Engine\Support\Data;
-
 /**
  * Widget Class
  */
 class Widget extends \WP_Widget {
+
+	const TEMPLATE_FILE_NAME = 'template-saucal-widget.php';
+
 
 	/**
 	 * Register a widget
@@ -43,7 +44,11 @@ class Widget extends \WP_Widget {
 			$output .= '<li>' . esc_html( $key ) . ': ' . esc_html( $value ) . '</li>';
 		}
 		$output .= '</ul>';
-		include SAUCALDEVTEST_PLUGIN_PATH . '/includes/templates/widget.php';
+		if ( file_exists( get_template_directory() . '/' . self::TEMPLATE_FILE_NAME ) ) {
+			include get_template_directory() . '/' . self::TEMPLATE_FILE_NAME;
+		} else {
+			include SAUCALDEVTEST_PLUGIN_PATH . '/includes/templates/' . self::TEMPLATE_FILE_NAME;
+		}
 	}
 
 
