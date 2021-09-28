@@ -41,6 +41,9 @@ function saucaldevtest_loader() {
 }
 add_action( 'plugins_loaded', 'saucaldevtest_loader' );
 if ( ! function_exists( 'saucal_flush_rewrite_rules' ) ) {
+	/**
+	 * Flush WordPress rewrite rules.
+	 */
 	function my_custom_flush_rewrite_rules() {
 		add_rewrite_endpoint( 'my-custom-endpoint', EP_ROOT | EP_PAGES );
 		flush_rewrite_rules();
