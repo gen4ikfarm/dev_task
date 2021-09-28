@@ -79,8 +79,7 @@ class DataFetch {
 		if ( ! empty( $user_options ) ) {
 			$url = add_query_arg( $user_options, $url );
 		}
-		$data = wp_remote_get( $url, array( 'method' => 'POST' ) );
-
+		$data = wp_remote_get( $url, [ 'method' => 'POST' ] );
 		if ( is_wp_error( $data ) ) {
 			return array( 'error' => esc_html( $data->get_error_message() ) );
 		}
@@ -93,7 +92,6 @@ class DataFetch {
 		if ( 200 !== $data['response']['code'] && isset( $data_array['error'] ) ) {
 			return array( 'error' => esc_html( $data['response']['code'] . ': ' . $data_array['message'] ) );
 		}
-
 		if ( array_key_exists( 'headers', $data_array ) ) {
 			return $data_array['headers'];
 		}
